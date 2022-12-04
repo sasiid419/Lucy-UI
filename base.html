@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}- Payments Portal</title>
+    <style>
+<!--    @font-face {-->
+<!--   font-family: myFirstFont;-->
+<!--   src: url(sansation_light.woff);-->
+<!--}-->
+
+<!--@font-face {-->
+<!--   font-family: myFirstFont;-->
+<!--   src: url(sansation_bold.woff);-->
+<!--   font-weight: bold;-->
+<!--}-->
+
+<!--* {-->
+<!--   font-family: myFirstFont;-->
+<!--}-->
+       body{
+            /* background: -webkit-linear-gradient(left, #536976   , #292E49);
+            background: linear-gradient(to right, #9F2B68   , #292E49); */
+            background: black;
+       }
+        nav a {
+            color: #fff;
+            font-size: 2.0em;
+            margin-left: 50px;
+            text-decoration: none;
+
+        }
+        nav a:hover{
+            border-radius: 8%;
+            background-image: linear-gradient(to right, #9F2B68 45%, #ee4b2b);
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+        table{
+           
+            table-layout: fixed !important;
+        }
+        .data {
+            height:500px;
+            overflow-x:auto;
+            margin-top: 0px;
+            border: 1px solid rgba(255,255,255,0.3);
+            background-color: rgba(255,255,255,0.3);
+
+        }
+        th{
+            padding: 20px 15px;
+            text-align: left;
+            font-weight: 600 !important;
+            font-size: 18px;
+            color: #fff;
+            text-transform: uppercase;
+            border-bottom: solid 1px rgba(255,255,255,0.1);           
+            text-align: center;
+            margin-bottom: 15px;
+}
+        td{
+            padding: 15px;
+            text-align: left;
+            vertical-align:middle;
+            font-weight: 500;
+            color: #fff;
+            border-bottom: solid 1px rgba(255,255,255,0.1);
+           
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+
+        .review {
+                margin-left: 50px;
+                font-size: 20px;
+        }
+
+        .query{
+            align-items: center;
+        }
+        .Heading{
+            font-size: 2.3em;
+            text-align: center;
+            font-size: 3.5em;
+
+            font-weight: 600;
+            background-image: linear-gradient(to right, #9F2B68 45%, #ee4b2b);
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+        input{
+            background: rgba(255,255,255,0.1);
+            border: none;
+            font-size: 16px;
+            height: auto;
+            margin: 0;
+            outline: 0;
+            padding: 15px;
+            width: 90%;
+            background-color: #e8eeef;
+            color: #FFA500;
+            box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+            margin-bottom: 30px;
+            overflow: auto;
+        
+        }
+        label {
+                display: block;
+                margin-bottom: 10px;
+                }
+        #wrapper{
+            text-align: center;
+            max-width: 350px;
+            margin: 10px auto;
+            padding: 10px 20px;
+            background: #f4f7f8;
+            border-radius: 8px;
+        }
+         #wrapper1{
+            font-size:10px;
+            text-align: center;
+            max-width: 360px;
+            margin: 10px auto;
+            padding: 10px 20px;
+            background: #CBC3E3;
+            border-radius: 8px;
+        }
+
+        .temp {
+            text-align:center;
+            font-size:15px;
+        }
+
+        .temp1 {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            font-size: 15px;
+            margin: 0;
+            outline: 1;
+            background-color: #f4f7f8;
+            color: black;
+<!--            box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;-->
+        }
+        .element{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 20px;
+
+        }
+        form button{
+            padding: 19px 16px 18px 16px;
+            color: #FFF;
+            background-color: #CBC3E3E3;
+            font-size: 18px;
+            text-align: center;
+            font-style: normal;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #3ac162;
+            border-width: 1px 1px 3px;
+            box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+        form button:hover{
+            box-shadow: 0 -1px 0 rgba(17, 17, 17, 0.1) inset;
+        }
+        
+        ::-webkit-scrollbar {
+            width: 6px;
+        } 
+        ::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+        } 
+        ::-webkit-scrollbar-thumb {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+        }
+
+    </style>
+</head>
+<body>
+
+
+    <nav>
+        <a href="{{ url_for('index') }}"><strong>Transactions</strong></a>
+        <a href="{{ url_for('refunds') }}"><strong>Refunds</strong></a>
+        <a href="{{ url_for('users') }}"><strong>Users</strong></a>
+        <a href="{{ url_for('create') }}"><strong>Create</strong></a>
+        <a href="{{ url_for('search') }}"><strong>Search</strong></a>
+
+    </nav>
+    <hr>
+    <div class="content">
+        {% block content %} {% endblock %}
+    </div>
+</body>
+<script>
+    $(window).on("load resize ", function() {
+  var scrollWidth = $('.data').width() - $('.data table').width();
+  $('.tbl-header').css({'padding-right':scrollWidth});
+  
+}).resize();
+
+function validateForm() {
+  let x = document.forms["myForm"]["query"].value;
+//   alert(x);
+const f = x.split(' ').shift();
+//   alert(first);
+  if (x == "") {
+    alert("Please enter query");
+    return false;
+  }
+
+  else if (f!="select" || f!= "Select"){
+    alert("Please enter correct query.");
+    return false;
+  }
+}
+
+</script>
+</html>

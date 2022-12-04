@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+   <div id="wrapper">
+    <h1>{% block title %} Search Query {% endblock %}</h1>
+    <form name="myForm" method="post" >
+    
+            <label class="query" for="query">Enter Query: </label>
+            <input type="text" name="query"
+                   placeholder="Query" 
+                   rows="2"
+                   cols="60">
+             
+    </input>
+    
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="wrapper1" xmlns="http://www.w3.org/1999/html">
+    <h1>{% block title %} Create Transaction {% endblock %}</h1>
+    <form name="createForm" method="post">
+        <div class="element">
+            <label class="temp" for="transactionId">Transaction Id:</label>
+            <input class="temp1" type="text" id="transactionId" name="transactionId"><br>
+        </div>
+        <div class="element">
+            <label class="temp" for="storeId">Store Id:</label>
+            <select class="temp1" id="storeId" name="storeId">
+                <option value="S000001">S000001</option>
+                <option value="S000002">S000002</option>
+                <option value="S000003">S000003</option>
+                <option value="S000004">S000004</option>
+                <option value="S000005">S000005</option>
+            </select><br>
+        </div>
+        <div class="element">
+            <label class="temp" for="category">Category : </label>
+            <select class="temp1" id="category" name="category">
+                <option value="UTILITY">UTILITY</option>
+                <option value="MOBILE_RECHARGE">MOBILE RECHARGE</option>
+                <option value="CABLE">CABLE</option>
+                <option value="PEER-PEER">PEER-PEER</option>
+            </select><br>
+        </div>
+        <div class="element">
+            <label class="temp" for="emailId">Email Id:</label>
+            <input class="temp1" type="text" id="emailId" name="emailId"><br>
+        </div>
+        <div class="element">
+            <label class="temp" for="amount">Amount:</label>
+            <input class="temp1" type="text" id="amount" name="amount"><br>
+        </div>
+        <div class="element">
+            <label class="temp" for="state">State:</label>
+            <select class="temp1" id="state" name="state">
+                <option value="SUCCESS">SUCCESS</option>
+                <option value="FAILED">FAILED</option>
+                <option value="PENDING_FROM_BANK">PENDING AT BANK</option>
+            </select><br>
+        </div>
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+    </form>
+</div>
+
+{% endblock %}
